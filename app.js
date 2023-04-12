@@ -2,9 +2,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
 const https = require("https");
+const dotenv = require("dotenv").config({ path: "./.env" });
 
 const app = express();
-const apiKey = process.env.API_KEY;
+console.log(process.env.API_KEY);
 app.use(express.static("public"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -37,13 +38,15 @@ app.post("/", function (req, res) {
 
   const options = {
     method: "POST",
-    auth: "Dheeraj:apiKey",
+    auth: `Dheeraj:${process.env.API_KEY}`,
   };
 
   const request = https.request(url, options, function (response) {
     if (response.statusCode === 200) {
       res.sendFile(__dirname + "/success.html");
     } else {
+      // console.log(response);
+      console.log(process.env.API_KEY);
       res.sendFile(__dirname + "/failure.html");
     }
 
