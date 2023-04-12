@@ -4,7 +4,7 @@ const request = require("request");
 const https = require("https");
 
 const app = express();
-
+const apiKey = process.env.API_KEY;
 app.use(express.static("public"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -34,8 +34,6 @@ app.post("/", function (req, res) {
   const jsonData = JSON.stringify(data);
 
   const url = "https://us21.api.mailchimp.com/3.0/lists/4389df792d";
-
-  const apiKey = process.env.API_KEY;
 
   const options = {
     method: "POST",
