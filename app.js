@@ -66,8 +66,6 @@ app.post("/failure", function (req, res) {
 //   res.redirect("https://github.com/D-zero-7");
 // });
 
-<script type="text/javascript" src="config.js"></script>;
-
 app.listen(process.env.PORT || 3000, function () {
   console.log("The server is live at port 3000");
 });
