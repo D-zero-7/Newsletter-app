@@ -35,11 +35,11 @@ app.post("/", function (req, res) {
 
   const url = "https://us21.api.mailchimp.com/3.0/lists/4389df792d";
 
-  var api = config.My_API;
+  const apiKey = process.env.API_KEY;
 
   const options = {
     method: "POST",
-    auth: "Dheeraj:api",
+    auth: "Dheeraj:apiKey",
   };
 
   const request = https.request(url, options, function (response) {
@@ -71,4 +71,4 @@ app.listen(process.env.PORT || 3000, function () {
 });
 
 //audience id
-//4389df792d
+//4389df792d"removed the changes...""
