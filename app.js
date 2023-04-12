@@ -35,9 +35,11 @@ app.post("/", function (req, res) {
 
   const url = "https://us21.api.mailchimp.com/3.0/lists/4389df792d";
 
+  var api = config.My_API;
+
   const options = {
     method: "POST",
-    auth: "Dheeraj:35b96f00d9d01c3e2f7a00d13c0f8e9b-us21",
+    auth: "Dheeraj:api",
   };
 
   const request = https.request(url, options, function (response) {
